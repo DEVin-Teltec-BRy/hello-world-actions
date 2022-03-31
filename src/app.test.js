@@ -8,4 +8,4 @@ describe('/test endpoint', () => {
     expect(response.status).toBe(200)
     expect(response.text).toBe("Hello DevInHouse")
   })
-})
+}) 
