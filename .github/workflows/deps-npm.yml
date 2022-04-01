@@ -1,18 +1,19 @@
 name: Update deps - NPM
-  on:
-    schedule:
-      - cron: "0 17 * * SUN"
-    workflow_dispatch:
-  jobs:
-    update:
-      name: Update NPM Dependencies
-      runs-on: ubuntu-latest
-      timeout-minutes: 30
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v3.0.0
-        - name: Update dependencies
-          run: ./.github/scripts/update-npm.sh  
-          env:
-            id: ${{ github.run_id }}
-            token: ${{ secrets.GITHUB_TOKEN }}
+on:
+  schedule:
+    - cron: "0 17 * * SUN"
+  workflow_dispatch:
+
+jobs:
+  update:
+    name: Update NPM Dependencies
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.0
+      - name: Update dependencies
+        run: ./.github/scripts/update-npm.sh  
+        env:
+          id: ${{ github.run_id }}
+          token: ${{ secrets.GITHUB_TOKEN }}
