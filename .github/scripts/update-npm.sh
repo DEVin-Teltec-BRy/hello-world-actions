@@ -29,6 +29,11 @@ if [[ $(git status --porcelain) ]]; then
   git checkout -b "npm_deps_${id}"
   git push origin "npm_deps_${id}"
 
+  # Open Pull Request
+  echo "Opening pull request..."
+
+  gh pr create --title "Weekly NPM Updates" --body "Updates NPM dependencies" --base main --head "npm_deps_${id}"
+
 else
   echo "No changes to commit"
 fi
