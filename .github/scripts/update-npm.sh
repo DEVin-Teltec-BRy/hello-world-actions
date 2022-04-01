@@ -32,6 +32,8 @@ if [[ $(git status --porcelain) ]]; then
   # Open Pull Request
   echo "Opening pull request..."
 
+  echo "${token}" | gh auth login --with-token
+
   gh pr create --title "Weekly NPM Updates" --body "Updates NPM dependencies" --base main --head "npm_deps_${id}"
 
 else 
