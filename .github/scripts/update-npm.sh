@@ -34,6 +34,6 @@ if [[ $(git status --porcelain) ]]; then
 
   gh pr create --title "Weekly NPM Updates" --body "Updates NPM dependencies" --base main --head "npm_deps_${id}"
 
-else
+else 
   echo "No changes to commit"
 fi
